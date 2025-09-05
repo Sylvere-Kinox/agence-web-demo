@@ -95,3 +95,40 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 });
+document.addEventListener('DOMContentLoaded', () => {
+
+    // (Votre code existant pour l'observateur d'intersection)
+
+    // Gestion de l'animation des compteurs
+    const statsSection = document.getElementById('stats');
+    if (statsSection) {
+        const observerStats = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const counters = document.querySelectorAll('.stats-section [data-target]');
+                    counters.forEach(counter => {
+                        const target = +counter.getAttribute('data-target');
+                        const speed = 200; // La vitesse du compteur (plus le nombre est petit, plus c'est rapide)
+                        const increment = target / speed;
+
+                        const updateCounter = () => {
+                            const value = +counter.innerText;
+                            if (value < target) {
+                                counter.innerText = Math.ceil(value + increment);
+                                setTimeout(updateCounter, 1);
+                            } else {
+                                counter.innerText = target;
+                            }
+                        };
+                        updateCounter();
+                    });
+                    observerStats.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.5
+        });
+
+        observerStats.observe(statsSection);
+    }
+});

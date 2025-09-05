@@ -224,3 +224,50 @@ h1, h2, h3, h4, h5, h6 {
     opacity: 1;
     transform: translateY(0);
 }
+
+/* --- Section Témoignages --- */
+.testimonials-section {
+    background-color: rgba(255, 255, 255, 0.05); /* Arrière-plan subtil */
+}
+
+.testimonials-section h2 {
+    color: var(--color-accent-1);
+}
+
+.testimonials-section .card {
+    border: 1px solid rgba(0, 245, 212, 0.2);
+    background-color: transparent;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.testimonials-section .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
+
+.testimonials-section .rounded-circle {
+    border: 2px solid var(--color-accent-1);
+    object-fit: cover;
+}
+/* --- Section Statistiques --- */
+.stats-section {
+    background: linear-gradient(135deg, var(--color-accent-2) 0%, var(--bg-dark) 100%);
+}
+
+.stats-section h3 {
+    color: var(--text-light);
+    font-size: 3rem;
+}
+
+.stats-section p {
+    color: var(--text-light);
+}
+
+
+/* --- Mise en valeur des prix --- */
+.price-box {
+    color: var(--color-accent-2); /* Magenta néon pour le prix */
+    font-size: 2.5rem;
+    padding: 10px;
+    border-radius: 8px;
+}

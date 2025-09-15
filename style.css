@@ -1,53 +1,67 @@
-/* style.css */
+/*
+ * Feuille de style personnalisée pour l'Agence Web Créative
+ * Auteur: Sylvère
+ *
+ * Ce style utilise des variables CSS pour une gestion facile des couleurs.
+ * Il inclut des animations fluides, des effets de survol modernes et des
+ * styles cohérents pour une expérience utilisateur optimale.
+*/
+
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans:wght@400&display=swap');
 
+/* --- Variables de couleur et de typographie --- */
 :root {
-    --bg-dark: #1a1a2e; /* Bleu nuit profond */
-    --color-accent-1: #00f5d4; /* Turquoise électrique */
-    --color-accent-2: #ff007f; /* Magenta néon */
-    --color-accent-3: #faff00; /* Jaune fluorescent */
-    --text-light: #e0e0e0; /* Gris très clair */
+    --bg-dark: #121212; /* Noir très sombre pour un look élégant */
+    --color-primary: #00f5d4; /* Turquoise électrique pour les accents */
+    --color-secondary: #ff007f; /* Magenta néon pour un contraste fort */
+    --color-tertiary: #faff00; /* Jaune fluorescent pour les détails */
+    --text-light: #e0e0e0; /* Gris très clair pour la lisibilité */
+
+    --font-heading: 'Montserrat', sans-serif;
+    --font-body: 'Open Sans', sans-serif;
 }
 
+/* --- Base du corps (body) --- */
 body {
-    font-family: 'Open Sans', sans-serif;
+    font-family: var(--font-body);
     background-color: var(--bg-dark);
     color: var(--text-light);
     line-height: 1.6;
-    overflow-x: hidden;
+    overflow-x: hidden; /* Empêche le défilement horizontal */
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: 'Montserrat', sans-serif;
+    font-family: var(--font-heading);
     color: var(--text-light);
 }
 
-.text-accent-1 { color: var(--color-accent-1); }
-.text-accent-2 { color: var(--color-accent-2); }
-.text-accent-3 { color: var(--color-accent-3); }
+.text-accent-1 { color: var(--color-primary); }
+.text-accent-2 { color: var(--color-secondary); }
+.text-accent-3 { color: var(--color-tertiary); }
 
 /* --- Barre de Navigation --- */
 .navbar {
-    background-color: rgba(26, 26, 46, 0.95); /* Bleu nuit plus opaque */
+    background-color: rgba(18, 18, 18, 0.95);
     backdrop-filter: blur(8px);
-    border-bottom: 2px solid rgba(0, 245, 212, 0.3); /* Bordure accentuée */
+    border-bottom: 2px solid rgba(255, 255, 255, 0.1);
     transition: background-color 0.3s ease;
 }
 
 .navbar-brand {
     color: var(--text-light) !important;
     font-size: 1.5rem;
+    font-weight: bold;
 }
 
 .nav-link {
     color: var(--text-light) !important;
-    font-family: 'Montserrat', sans-serif;
+    font-family: var(--font-heading);
     font-weight: 700;
     transition: color 0.3s ease;
 }
 
 .nav-link:hover {
-    color: var(--color-accent-1) !important;
+    color: var(--color-primary) !important;
 }
 
 .navbar-toggler {
@@ -55,43 +69,49 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .navbar-toggler-icon {
-    filter: invert(1); /* Rend l'icône blanche pour une meilleure visibilité */
+    filter: invert(1);
 }
 
-/* Boutons */
-.btn-primary {
-    background-color: var(--color-accent-1);
-    border-color: var(--color-accent-1);
-    color: var(--bg-dark) !important; /* Texte sombre sur bouton clair */
+/* --- Boutons --- */
+.btn {
+    font-family: var(--font-heading);
+    font-weight: bold;
+    border-radius: 50px; /* Bordures plus arrondies pour un look moderne */
+    padding: 0.75rem 2rem;
     transition: all 0.3s ease-in-out;
-    font-weight: bold; /* Rendre le texte plus gras pour les boutons */
+}
+
+.btn-primary {
+    background-color: var(--color-primary);
+    border-color: var(--color-primary);
+    color: var(--bg-dark) !important;
+    box-shadow: 0 4px 15px rgba(0, 245, 212, 0.2);
 }
 
 .btn-primary:hover {
-    background-color: var(--color-accent-2);
-    border-color: var(--color-accent-2);
-    transform: translateY(-3px); /* Légère élévation */
-    box-shadow: 0 6px 12px rgba(255, 0, 127, 0.4);
+    background-color: var(--color-secondary);
+    border-color: var(--color-secondary);
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 8px 20px rgba(255, 0, 127, 0.5);
 }
 
 .btn-outline-primary {
-    color: var(--color-accent-1);
-    border-color: var(--color-accent-1);
-    transition: all 0.3s ease-in-out;
-    font-weight: bold;
+    color: var(--color-primary);
+    border-color: var(--color-primary);
 }
 
 .btn-outline-primary:hover {
-    background-color: var(--color-accent-1);
+    background-color: var(--color-primary);
     color: var(--bg-dark) !important;
+    box-shadow: 0 4px 15px rgba(0, 245, 212, 0.2);
 }
 
-/* Section Héro */
+/* --- Sections & Cartes --- */
 .hero-section {
     min-height: 100vh;
-    background: linear-gradient(135deg, var(--bg-dark) 0%, #3a1c71 50%, #d76d77 100%); /* Dégradé plus coloré */
+    background: linear-gradient(135deg, #121212 0%, #1a0a2f 50%, #2f0a1a 100%);
     background-size: 400% 400%;
-    animation: gradientShift 15s ease infinite; /* Animation plus lente et douce */
+    animation: gradientShift 15s ease infinite;
 }
 
 @keyframes gradientShift {
@@ -100,174 +120,145 @@ h1, h2, h3, h4, h5, h6 {
     100% { background-position: 0% 50%; }
 }
 
-/* Cards de la section "Pourquoi nous choisir ?" */
 .card {
-    background-color: rgba(0, 245, 212, 0.08); /* Fond subtil d'accent */
-    border: 1px solid rgba(0, 245, 212, 0.2);
-    color: var(--text-light); /* Texte clair */
-    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--text-light);
+    border-radius: 12px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .card:hover {
     transform: translateY(-5px);
     box-shadow: 0 12px 25px rgba(0,0,0,0.4);
-    border-color: var(--color-accent-2); /* Bordure qui change au survol */
 }
 
 .interactive-card:hover .icon-interactive {
-    color: var(--color-accent-2); /* Icône qui change au survol */
+    color: var(--color-secondary);
 }
 
-/* Cards de la section "Formules" */
 .package-card {
-    border: 2px solid var(--color-accent-1) !important;
-    background-color: rgba(0, 245, 212, 0.1);
-    transition: all 0.4s ease-in-out;
-    color: var(--text-light); /* Texte clair */
+    border: 2px solid var(--color-primary);
+    background-color: rgba(255, 255, 255, 0.05);
     box-shadow: 0 4px 15px rgba(0,0,0,0.2);
 }
 
 .package-card:hover {
     transform: scale(1.03) translateY(-5px);
-    border-color: var(--color-accent-2) !important;
-    background-color: rgba(255, 0, 127, 0.15); /* Changement de fond au survol */
+    border-color: var(--color-secondary);
+    background-color: rgba(255, 255, 255, 0.08);
     box-shadow: 0 10px 30px rgba(255, 0, 127, 0.3);
 }
 
-.package-card .card-text {
-    color: var(--text-light); /* Assure que le texte du paragraphe est clair */
-}
-
-.package-card .list-unstyled li {
-    color: var(--text-light); /* Assure que le texte de la liste est clair */
-}
-
-
-/* Section Projets */
-.projects-section {
-    background-color: #1a1a2e; /* Fond sombre mais non noir */
-}
+/* --- Section Projets --- */
 .projects-section .card {
-    background-color: rgba(255, 0, 127, 0.08); /* Fond subtil d'accent magenta */
-    border: 1px solid rgba(255, 0, 127, 0.2);
+    background-color: rgba(255, 255, 255, 0.05);
+    min-height: 570px;
 }
-.projects-section .card:hover {
-    border-color: var(--color-accent-1);
-    box-shadow: 0 12px 25px rgba(0,0,0,0.4);
+.projects-section .card-body {
+    height: auto;
+    display: flex;
+    flex-direction: column;
+}
+.projects-section .card-text {
+    flex-grow: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 6;
+    -webkit-box-orient: vertical;
 }
 
+/* --- Section Statistiques --- */
+.stats-section {
+    background: linear-gradient(to right, var(--color-primary), var(--color-secondary));
+    color: var(--bg-dark);
+}
 
-/* Section Contact */
+.stats-section .display-4 {
+    color: var(--bg-dark);
+}
+
+.stats-section p {
+    color: var(--bg-dark);
+    font-weight: 600;
+}
+
+/* --- Section Témoignages --- */
+.testimonials-section {
+    background-color: var(--bg-dark);
+}
+
+.testimonials-section .card {
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.testimonials-section .card:hover {
+    border-color: var(--color-secondary);
+}
+
+.testimonials-section .rounded-circle {
+    border: 2px solid var(--color-primary);
+    object-fit: cover;
+}
+
+/* --- Section Contact --- */
 .contact-section {
-    background: linear-gradient(135deg, #1a1a2e, #3a1c71); /* Dégradé pour la section contact */
-}
-
-.contact-section h2 {
-    color: var(--color-accent-1);
+    background: linear-gradient(135deg, #121212, #2a0c4f);
 }
 
 #contact-form {
-    background-color: rgba(255, 255, 255, 0.07); /* Arrière-plan semi-transparent plus lumineux */
+    background-color: rgba(255, 255, 255, 0.05);
     padding: 2.5rem;
     border-radius: 12px;
     box-shadow: 0 6px 25px rgba(0, 0, 0, 0.4);
     border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-#contact-form .form-label {
+#contact-form .form-label,
+#contact-form .form-control {
     color: var(--text-light);
-    font-weight: bold;
 }
 
 #contact-form .form-control {
-    background-color: rgba(255, 255, 255, 0.15); /* Champ de saisie plus lumineux */
+    background-color: rgba(255, 255, 255, 0.1);
     border: 1px solid rgba(255, 255, 255, 0.3);
-    color: var(--text-light);
-    border-radius: 8px;
-    padding: 0.75rem 1rem;
 }
 
 #contact-form .form-control:focus {
-    background-color: rgba(255, 255, 255, 0.2);
-    border-color: var(--color-accent-1);
+    background-color: rgba(255, 255, 255, 0.15);
+    border-color: var(--color-primary);
     box-shadow: 0 0 0 0.25rem rgba(0, 245, 212, 0.25);
 }
 
-/* Pied de Page */
+/* --- Pied de Page --- */
 .footer {
-    background-color: #111122; /* Un fond légèrement plus sombre que le BG principal */
-    border-top: 1px solid rgba(0, 245, 212, 0.1); /* Bordure subtile */
-    color: var(--text-light); /* Texte clair */
+    background-color: #0d0d0d;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .footer .text-muted {
-    color: rgba(255, 255, 255, 0.6) !important; /* Texte de copyright un peu plus doux */
+    color: rgba(255, 255, 255, 0.5) !important;
 }
 
 .footer a {
-    color: var(--color-accent-1) !important; /* Liens sociaux accentués */
+    color: var(--color-primary) !important;
     transition: color 0.3s ease;
 }
 
 .footer a:hover {
-    color: var(--color-accent-2) !important;
+    color: var(--color-secondary) !important;
 }
 
-/* Animations au défilement */
+/* --- Animations au défilement --- */
 .fade-in-up {
     opacity: 0;
-    transform: translateY(40px); /* Un peu plus d'ampleur pour l'animation */
-    transition: opacity 1s ease-out, transform 1s ease-out; /* Transitions plus douces */
+    transform: translateY(20px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
 }
 
 .fade-in-up.is-visible {
     opacity: 1;
     transform: translateY(0);
-}
-
-/* --- Section Témoignages --- */
-.testimonials-section {
-    background-color: rgba(255, 255, 255, 0.05); /* Arrière-plan subtil */
-}
-
-.testimonials-section h2 {
-    color: var(--color-accent-1);
-}
-
-.testimonials-section .card {
-    border: 1px solid rgba(0, 245, 212, 0.2);
-    background-color: transparent;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.testimonials-section .card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
-}
-
-.testimonials-section .rounded-circle {
-    border: 2px solid var(--color-accent-1);
-    object-fit: cover;
-}
-/* --- Section Statistiques --- */
-.stats-section {
-    background: linear-gradient(135deg, var(--color-accent-2) 0%, var(--bg-dark) 100%);
-}
-
-.stats-section h3 {
-    color: var(--text-light);
-    font-size: 3rem;
-}
-
-.stats-section p {
-    color: var(--text-light);
-}
-
-
-/* --- Mise en valeur des prix --- */
-.price-box {
-    color: var(--color-accent-2); /* Magenta néon pour le prix */
-    font-size: 2.5rem;
-    padding: 10px;
-    border-radius: 8px;
 }
